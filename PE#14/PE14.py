@@ -24,7 +24,6 @@ def chainLen(x):
         return hashmap.get(x)
 
 #currently returns the value of the longest chain but not the number that produced the chain
-
 maximum = 0
 for i in range(1,1000000):
     length = chainLen(i)
