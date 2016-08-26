@@ -9,6 +9,19 @@ What is the total of all the name scores in the file?'''
 
 
 with open("./p022_names.txt") as f:
-    names = f.read().splitlines()
-    sortedNames = sorted(names)
-    print sortedNames
+    names = f.read().splitlines()                   # read list of names
+    names = names[0].replace('"','').split(',')     # remove quotes and seperate by commas
+    names.sort()                                    # sort the names
+nameScore =0
+
+
+
+total = 0
+for i in range(len(names)):
+    nameScore = 0
+    for c in names[i]:                              # loop over each character in the name
+       nameScore += (ord(c)-64)                     # take the ascii value - an offset and add it to namescore
+    score = (i+1) * nameScore       #Lack of brackets was reason for headache, long debugging, and wrong answer!
+    total += score
+
+print total                                         # print the total of all name scores
